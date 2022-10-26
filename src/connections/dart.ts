@@ -1,6 +1,7 @@
 import { Message } from "../components/Chat"
 import stations from "./stations.json"
 import axios from "axios"
+import XMLParser from "react-xml-parser"
 
 type Train = {
   date: string
@@ -8,8 +9,6 @@ type Train = {
   late: string
   time: string
 }
-
-const XMLParser = require("react-xml-parser")
 
 const dart = {
   async chatResponse(text: string): Promise<Message[]> {

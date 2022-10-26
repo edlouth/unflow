@@ -21,7 +21,7 @@ const Chat: React.FC = () => {
       const response = await dart.chatResponse(query)
 
       setMessages([...messages, ...response])
-      setSubmitting(false) // call is finished, set to false
+      setSubmitting(false)
     }
 
     if (submitting) {
@@ -39,7 +39,7 @@ const Chat: React.FC = () => {
 
   return (
     <Box>
-      <ChatMessages messages={messages} />
+      <ChatMessages messages={messages} submitting={submitting} />
       <ChatTextbox onSubmit={handleSubmit} />
     </Box>
   )
