@@ -1,4 +1,4 @@
-import { Card, Stack } from "@mui/material"
+import { Card, Stack, Typography } from "@mui/material"
 import React from "react"
 import { Message } from "./Chat"
 
@@ -10,7 +10,9 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({ messages }) => (
   <Stack direction="column" spacing={1} sx={{ my: 3 }}>
     {messages.map(message => (
       <Card sx={{ textAlign: message.bot ? "right" : "left", p: 1 }}>
-        {message.text}
+        {Array.isArray(message.text)
+          ? message.text.map(m => <Typography>{m}</Typography>)
+          : message.text}
       </Card>
     ))}
   </Stack>
