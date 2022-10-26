@@ -1,9 +1,14 @@
 import { Message } from "../components/Chat"
+import stations from "./stations.json"
 
 const dart = {
   chatResponse(text: string): Message[] {
     if (text.toLowerCase() === "list stations") {
-      return [{ text: "List of stations", bot: true }]
+      const stationsList = stations.map(
+        station => `${station.StationDesc} (${station.StationCode})`
+      )
+
+      return [{ text: ["List of stations", ...stationsList], bot: true }]
     }
 
     if (text === "Get train times from A") {
