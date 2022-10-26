@@ -28,10 +28,14 @@ const dart = {
       const station = match[1]
 
       const res = await axios.get(
-        `https://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc=${station}`
+        `https://api.allorigins.win/get?url=${encodeURIComponent(
+          `https://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc=${station}`
+        )}`
       )
 
-      var xml = new XMLParser().parseFromString(res.data)
+      console.log(res.data.contents)
+
+      var xml = new XMLParser().parseFromString(res.data.contents)
 
       const childToTrain = (child: any): Train => {
         const getProp = (name: string) =>
