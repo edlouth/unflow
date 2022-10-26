@@ -4,7 +4,7 @@ import { Message } from "./Chat"
 
 type ChatMessagesProps = {
   messages: Message[]
-  submitting: boolean
+  submitting?: boolean
 }
 
 const ChatMessages: React.FC<ChatMessagesProps> = ({
