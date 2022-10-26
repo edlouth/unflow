@@ -38,7 +38,7 @@ const dart = {
 
       const childToTrain = (child: any): Train => {
         const getProp = (name: string) =>
-          child.children.find((c: any) => c.name === name)?.value
+          child.children.find((c: any) => c.name === name).value
 
         return {
           date: getProp("Traindate"),

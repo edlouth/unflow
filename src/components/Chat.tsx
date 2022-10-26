@@ -12,12 +12,10 @@ export type Message = {
 const Chat: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([])
   const [submitting, setSubmitting] = useState(false)
-  const [query, setQuery] = useState<string>()
+  const [query, setQuery] = useState<string>("")
 
   useEffect(() => {
     const getData = async () => {
-      if (!query) return
-
       const response = await dart.chatResponse(query)
 
       setMessages([...messages, ...response])
